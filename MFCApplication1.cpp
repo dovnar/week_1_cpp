@@ -5,7 +5,7 @@
 #include "stdafx.h"
 #include "MFCApplication1.h"
 #include "MFCApplication1Dlg.h"
-
+#include <iostream>
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -33,25 +33,77 @@ CMFCApplication1App theApp;
 
 
 // CMFCApplication1App initialization
+///@brief  
 
-class RandomGenerator
+
+
+class RandomGenerator///@brief  random 
 {
-private:	
-	int* m_ptr;
-	int** m_ptrptr;
-	int*** m_ptrptrptr;
+private:
+	double starts, count;
 protected:
 public:
-	int GeneratorRandom(int, int, double);
+	void SetMinValue(double a_start)
+	{
+		starts = a_start;		///@brief initialization start
+	}
+	void SetMaxValue(double a_count)
+	{
+		count = a_count;		///@brief initialization count
+	}
+	double GeneratorRandom()			///@brief  random 
+	{
+		return (double)(rand() % (int)count + starts);
+	}
 };
+class MyRandom : public RandomGenerator
+{
+protected:
+
+};
+
+//class RG
+//{
+//	int reg = 10;
+//public:
+//	int* r = &reg;
+//};
+//class myRG : public RG
+//{
+//public:
+//	void printRG()
+//	{
+//		std::cout << r << std::endl;
+//	}
+//};
+
 
 BOOL CMFCApplication1App::InitInstance()
 {
 	CWinApp::InitInstance();                               
 
-	RandomGenerator vRG;
-	vRG.m_ptr = nullptr;
-	
+	std::cout << "																																		      ____ _""\n"
+		"	  _																																			     (__  ^ \\""\n"
+		"   _/ \_																																			    \____\\""\n"
+		"  (	 )																																				    _\\__""\n"
+		"   \   /																												     ___________________		  /		 \\""\n"
+		"	 | |																													/				   /|		 |		  |""\n"
+		"  \\| \              ________________________________________________    ________________________________________________ /__________________/ |		  \		 /""\n"
+		"\\ \   |            /                                               /|  /                                               /||				  | |__________|	|_____""\n"
+		" \\ |  |           /_______________________________________________/ | /_______________________________________________/ ||	_________     | /		   |____|	 /\\""\n"
+		"  \\|  |  /|      |       _________               _________       |  ||       _________               _________       |  ||	|   |   |	  |/____________________/  \\""\n"
+		"   \   | / /      |       |   |   |               |   |   |       |  ||       |   |   |               |   |   |       |  ||	|---+---|			___ 	____	\   )""\n"
+		"    |  |/ /       |       |---+---|               |---+---|       |  ||       |---+---|               |---+---|       |  ||	|___|___|			   \		\	 \ /""\n"
+		"    |    /        |       |___|___|               |___|___|       |  /|       |___|___|               |___|___|       |  /|						====)--------)----)""\n"
+		"    |   /         |                                               | / |                                               | /	|  _______			___/	____/	 /""\n"
+		"    |  |         =|_______________________________________________|/==|_______________________________________________|/==|_//     \\___________________________/""\n"
+		"    |  |            |_/  \_/  \ _|              |_/  \_/  \ _|          |_/  \_/  \ _|              |_/  \_/  \ _|        (   *   )          |_/  \_/  \ _|""\n"
+		"======================\__/=\__/===================\__/=\__/===============\__/=\__/===================\__/=\__/============\_____/=============\__/=\__/============""\n"
+		"=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=lol=" "\n";
+
+	MyRandom myRg;
+	myRg.SetMinValue(100);
+
 	// Create the shell manager, in case the dialog contains
 	// any shell tree view or shell list view controls.
 	CShellManager *pShellManager = new CShellManager;
